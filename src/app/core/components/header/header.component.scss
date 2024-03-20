@@ -1,11 +1,8 @@
 @import './../../../../styles.scss';
 
 mat-toolbar {
-  position: fixed;
   height: 3em;
-    top: 0;
-    left: 0;
-    z-index: 2;
+  z-index: 2;
 }
 
 ul {
