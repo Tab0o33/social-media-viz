@@ -1,3 +1,28 @@
-<mat-card>
-    <mat-card-content>Bienvenue sur ce super réseau social</mat-card-content>
+@for (post of posts(); track $index) {
+<mat-card class="card">
+    <mat-card-header>
+        <div mat-card-avatar class="card-avatar" [ngStyle]="{ 'background-image': 'url(' + post.profilImage + ')' }">
+        </div>
+        <mat-card-title>{{post.userName}}</mat-card-title>
+        <mat-card-subtitle>{{post.createdDate | date}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="post.image" alt="Profil picture">
+    <mat-card-content>
+        <p class="card-text">
+            {{post.text}}
+        </p>
+        <div class="like-count">
+            <mat-icon color="accent" aria-hidden="false" aria-label="Like count icon" fontIcon="recommend"></mat-icon>
+            <span>{{post.likeCount}}</span>
+        </div>
+        <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="toggleLike(post.id, post.isLiked)">
+            <mat-icon [color]="post.isLiked ? 'primary' : ''" [class]="!post.isLiked ? 'material-icons-outlined' : ''"
+                aria-hidden="false" aria-label="Like icon" fontIcon="thumb_up"></mat-icon>
+            J'aime
+        </button>
+    </mat-card-actions>
 </mat-card>
+}

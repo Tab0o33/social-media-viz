@@ -1,0 +1,18 @@
+.card {
+  max-width: 400px;
+  margin: 1em;
+}
+
+.card-avatar {
+  background-size: cover;
+}
+
+.card-text{
+    text-align: justify;
+}
+
+.like-count{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+}
