@@ -3,8 +3,6 @@
         <li>
             <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accueil</a>
         </li>
-        <li>
-            <a routerLink="/login" routerLinkActive="active">Login</a>
-        </li>
     </ul>
+    <button mat-flat-button (click)="logout()">Déconnexion</button>
 </mat-toolbar>

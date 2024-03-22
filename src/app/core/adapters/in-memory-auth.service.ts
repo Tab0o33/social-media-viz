@@ -15,10 +15,15 @@ export class InMemoryAuthService extends AuthService {
         return this._isLoggedIn;
     }
 
-    login(login: Login): void {
+    public login(login: Login): void {
         setTimeout(() => {
             this.loginSucceeded();
         }, 1000);
+    }
+
+    public logout(): void {
+        this._isLoggedIn = false;
+        this.router.navigateByUrl('/login');
     }
 
     private loginSucceeded() {

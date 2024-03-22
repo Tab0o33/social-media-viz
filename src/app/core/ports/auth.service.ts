@@ -8,4 +8,6 @@ export abstract class AuthService {
 
     abstract get isLoggedIn(): boolean;
     abstract login(login: Login): void;
+    abstract logout(): void;
+
 }
