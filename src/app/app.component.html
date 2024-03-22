@@ -1,5 +1,7 @@
 <main class="main">
+    @if (isLoggedIn()) {
     <app-header />
+    }
     <div class="content">
         <router-outlet />
     </div>
