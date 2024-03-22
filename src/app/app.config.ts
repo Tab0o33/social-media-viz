@@ -9,6 +9,8 @@ import { InMemoryPostService } from './core/adapters/in-memory-post-service';
 
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
+import { InMemoryAuthService } from './core/adapters/in-memory-auth.service';
+import { AuthService } from './core/ports/auth.service';
 
 registerLocaleData(localeFr);
 
@@ -18,6 +20,7 @@ export const appConfig: ApplicationConfig = {
         provideClientHydration(),
         provideAnimationsAsync(),
         { provide: LOCALE_ID, useValue: 'fr-FR' },
-        { provide: PostService, useClass: InMemoryPostService }
+        { provide: PostService, useClass: InMemoryPostService },
+        { provide: AuthService, useClass: InMemoryAuthService }
     ]
 };

@@ -4,6 +4,7 @@ import { AsyncPipe, NgStyle, DatePipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider';
 import { toSignal } from '@angular/core/rxjs-interop';
 
@@ -17,6 +18,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
         MatCardModule,
         MatButtonModule,
         MatDividerModule,
+        MatProgressSpinnerModule,
         MatIconModule
     ],
     templateUrl: './homepage.component.html',
@@ -26,7 +28,6 @@ export class HomepageComponent {
 
     private userService = inject(PostService);
 
-    protected posts$ = this.userService.getAll();
     protected posts = toSignal(this.userService.getAll());
 
     toggleLike(id: number, isLiked: boolean) {

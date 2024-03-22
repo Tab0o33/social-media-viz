@@ -1,3 +1,4 @@
+@defer(when (posts())) {
 @for (post of posts(); track $index) {
 <mat-card class="card">
     <mat-card-header>
@@ -25,4 +26,7 @@
         </button>
     </mat-card-actions>
 </mat-card>
+}
+} @placeholder {
+<mat-spinner></mat-spinner>
 }
