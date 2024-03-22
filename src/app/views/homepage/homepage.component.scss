@@ -1,3 +1,10 @@
+.page{
+   display: flex;
+   flex-direction: column;
+   justify-content:center;
+   align-items:center;
+}
+
 .card {
   max-width: 400px;
   margin: 1em;
