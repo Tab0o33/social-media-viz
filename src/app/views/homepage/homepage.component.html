@@ -1,7 +1,19 @@
 <div class="page">
+    <mat-card>
+        <form [formGroup]="newPostForm" (ngSubmit)="onSubmit()">
+            <mat-card-content class="card-newPost">
+                <mat-form-field class="item">
+                    <mat-label>Exprimez vous...</mat-label>
+                    <input matInput formControlName="newPost">
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit">Envoyer</button>
+            </mat-card-content>
+        </form>
+    </mat-card>
+
     @defer(when (posts())) {
-    @for (post of posts(); track $index) {
-    <mat-card class="card">
+    @for (post of posts()! | sort : 'createdDate' : 'desc'; track $index ) {
+    <mat-card>
         <mat-card-header>
             <div mat-card-avatar class="card-avatar"
                 [ngStyle]="{ 'background-image': 'url(' + post.profilImage + ')' }">
@@ -9,7 +21,7 @@
             <mat-card-title>{{post.userName}}</mat-card-title>
             <mat-card-subtitle>{{post.createdDate | date}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="post.image" alt="Profil picture">
+        @if (post.image) {<img mat-card-image [src]="post.image" alt="">}
         <mat-card-content>
             <p class="card-text">
                 {{post.text}}

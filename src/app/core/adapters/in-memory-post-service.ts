@@ -48,6 +48,23 @@ export class InMemoryPostService extends PostService {
         } else {
             throw Error(`Post with id ${id} not found`);
         }
+    }
 
+    addone(text: string): Observable<Post> {
+        const maxPostId = Math.max(...this.posts.map(p => p.id));
+        const newPost: Post = {
+            id: maxPostId + 1,
+            userName: 'me',
+            createdDate: new Date(Date.now()),
+            profilImage: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+            text,
+            likeCount: 0,
+            isLiked: false
+        }
+        this.posts.push(newPost);
+
+        return of(newPost).pipe(
+            delay(1000)
+        );
     }
 }

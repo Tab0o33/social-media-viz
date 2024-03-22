@@ -3,7 +3,7 @@ export interface Post {
     userName: string;
     createdDate: Date;
     profilImage: string;
-    image: string;
+    image?: string;
     text: string;
     likeCount: number;
     isLiked: boolean;
