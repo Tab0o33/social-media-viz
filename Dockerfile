@@ -23,7 +23,7 @@ FROM nginx:alpine
 COPY --from=build /app/dist/social-media-viz/browser /usr/share/nginx/html
 
 # Exposition du port 4200
-EXPOSE 4200
+EXPOSE 80:80
 
 # Commande pour démarrer nginx
 # CMD ["nginx", "-g", "daemon off;"]
