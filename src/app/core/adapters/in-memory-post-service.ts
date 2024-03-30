@@ -61,7 +61,7 @@ export class InMemoryPostService extends PostService {
             likeCount: 0,
             isLiked: false
         }
-        this.posts.push(newPost);
+        this.posts.unshift(newPost);
 
         return of(newPost).pipe(
             delay(1000)

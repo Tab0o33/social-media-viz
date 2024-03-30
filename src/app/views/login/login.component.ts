@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { MatInputModule } from '@angular/material/input';
@@ -19,7 +19,8 @@ import { Login } from '../../core/models/login.model';
         ReactiveFormsModule
     ],
     templateUrl: './login.component.html',
-    styleUrl: './login.component.scss'
+    styleUrl: './login.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
 

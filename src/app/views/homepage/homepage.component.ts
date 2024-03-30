@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { PostService } from '../../core/ports/post.service';
 import { AsyncPipe, NgStyle, DatePipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,7 +30,8 @@ import { SortPipe } from '../../shared/pipes/sort.pipe';
         SortPipe
     ],
     templateUrl: './homepage.component.html',
-    styleUrl: './homepage.component.scss'
+    styleUrl: './homepage.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomepageComponent {
 
@@ -48,7 +49,7 @@ export class HomepageComponent {
     }
 
     onSubmit() {
-        this.postService.addone(this.newPostForm.value.newPost);
+        this.postService.addone(this.newPostForm.value.newPost).subscribe();
         this.newPostForm.reset();
     }
 
