@@ -33,5 +33,6 @@ export const routes: Routes = [
         path: 'login',
         loadComponent: () => import('./views/login/login.component').then((x) => x.LoginComponent),
         title: 'Login'
-    }
+    },
+    { path: '**', redirectTo: '' }
 ];
