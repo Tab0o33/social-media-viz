@@ -31,10 +31,18 @@ export class InMemoryPostService extends PostService {
         }
     ];
 
+    override get posts$(): Observable<Post[]> {
+        throw new Error("Method not implemented.");
+    }
+
     getAll(): Observable<Post[]> {
         return of(this.posts).pipe(
             delay(1000)
         );
+    }
+
+    override getPostsFromServer(): void {
+        throw new Error("Method not implemented.");
     }
 
     update(id: number, isLiked: boolean): Observable<Post> {
@@ -48,6 +56,10 @@ export class InMemoryPostService extends PostService {
         } else {
             throw Error(`Post with id ${id} not found`);
         }
+    }
+
+    override updatePostOnServer(id: number, isLiked: boolean): void {
+        throw new Error("Method not implemented.");
     }
 
     addone(text: string): Observable<Post> {
@@ -66,5 +78,9 @@ export class InMemoryPostService extends PostService {
         return of(newPost).pipe(
             delay(1000)
         );
+    }
+
+    override addPostOnServer(text: string): void {
+        throw new Error("Method not implemented.");
     }
 }

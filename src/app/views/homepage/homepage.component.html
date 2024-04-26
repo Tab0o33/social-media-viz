@@ -16,9 +16,9 @@
     <mat-card>
         <mat-card-header>
             <div mat-card-avatar class="card-avatar"
-                [ngStyle]="{ 'background-image': 'url(' + post.profilImage + ')' }">
+                [ngStyle]="{ 'background-image': 'url(' + (post.profilImage ? post.profilImage : 'assets/images/photo-avatar-profil.png') + ')'}">
             </div>
-            <mat-card-title>{{post.userName}}</mat-card-title>
+            <mat-card-title>{{post.userName | titlecase}}</mat-card-title>
             <mat-card-subtitle>{{post.createdDate | date}}</mat-card-subtitle>
         </mat-card-header>
         @if (post.image) {<img mat-card-image [src]="post.image" alt="">}
